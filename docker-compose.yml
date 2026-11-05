@@ -1,0 +1,26 @@
+services:
+  database:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: supplytwin
+      POSTGRES_USER: supplytwin
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    volumes:
+      - supplytwin-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U supplytwin"]
+      interval: 5s
+      retries: 10
+  api:
+    build: ./backend
+    ports: ["8000:8000"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://supplytwin:${POSTGRES_PASSWORD}@database:5432/supplytwin
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET}
+      DEMO_MODE: "true"
+      CORS_ORIGINS: http://localhost:5173
+    depends_on:
+      database:
+        condition: service_healthy
+volumes:
+  supplytwin-data:

@@ -1,0 +1,12 @@
+.github-sync
+.git
+**/node_modules
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/*.db
+**/.jwt-secret
+**/.env
+**/.env.local
+**/.env.*.local
+docs

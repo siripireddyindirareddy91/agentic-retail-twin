@@ -1,0 +1,1 @@
+{"name":"supplytwin-platform","private":true,"version":"1.0.1","scripts":{"build":"npm --prefix frontend run build","dev":"npm --prefix frontend run dev"}}

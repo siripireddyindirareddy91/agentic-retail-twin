@@ -1,0 +1,5 @@
+.env
+*.db
+.jwt-secret
+__pycache__
+.pytest_cache

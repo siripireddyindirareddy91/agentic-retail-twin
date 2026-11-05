@@ -1,0 +1,11 @@
+# Lean deployed runtime. Offline model-training dependencies remain in backend/.
+fastapi>=0.115,<1
+sqlalchemy>=2.0,<3
+pydantic>=2.9,<3
+PyJWT>=2.9,<3
+bcrypt>=4.2,<6
+psycopg[binary]>=3.2,<4
+langgraph>=0.2,<2
+langchain-core>=0.3,<2
+reportlab>=4,<5
+python-dotenv>=1,<2
